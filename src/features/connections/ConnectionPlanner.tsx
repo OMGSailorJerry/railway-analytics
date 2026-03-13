@@ -3,7 +3,6 @@ import { useConnections } from './useConnections';
 import { ConnectionList } from './ConnectionList';
 import { LoadingState, ErrorState } from '@/shared/components/LoadingState';
 import { useStationSearch } from '../station-search/useStationSearch';
-import { useDebounce } from '@/shared/hooks/useDebounce';
 import { cn } from '@/shared/utils/cn';
 import type { Station } from '@/api/types';
 
@@ -15,11 +14,8 @@ export function ConnectionPlanner() {
   const [showFromDropdown, setShowFromDropdown] = useState(false);
   const [showToDropdown, setShowToDropdown] = useState(false);
 
-  const debouncedFromQuery = useDebounce(fromQuery, 300);
-  const debouncedToQuery = useDebounce(toQuery, 300);
-
-  const fromResults = useStationSearch(debouncedFromQuery);
-  const toResults = useStationSearch(debouncedToQuery);
+  const fromResults = useStationSearch(fromQuery);
+  const toResults = useStationSearch(toQuery);
 
   const { connections, isLoading, error } = useConnections(
     fromStation?.name || null,
@@ -61,7 +57,7 @@ export function ConnectionPlanner() {
             }}
             onFocus={() => setShowFromDropdown(true)}
             placeholder="Departure station"
-            className="flex h-10 w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm ring-offset-background placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            className="flex w-full cursor-pointer items-center rounded-sm px-3 py-2 text-sm hover:bg-gray-100"
           />
           {showFromDropdown && fromQuery && (
             <div className="absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-md border bg-white p-1 shadow-md">

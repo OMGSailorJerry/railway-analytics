@@ -1,5 +1,6 @@
 import { cn } from '@/shared/utils/cn';
 import type { Connection } from '@/api/types';
+import { formatDuration } from '@/shared/utils/formatDelay';
 
 interface ConnectionListProps {
   connections: Connection[];
@@ -29,7 +30,7 @@ export function ConnectionList({
             key={index}
             onClick={() => onSelectConnection?.(connection)}
             className={cn(
-              'rounded-lg border bg-card p-4 shadow-sm transition-colors',
+              'rounded-lg border bg-white p-4 shadow-sm transition-colors',
               onSelectConnection && 'cursor-pointer hover:bg-gray-100'
             )}
           >
@@ -50,9 +51,9 @@ export function ConnectionList({
 
                   <div className="flex flex-1 flex-col items-center">
                     <div className="text-sm font-medium text-gray-400">
-                      {connection.duration}
+                      {formatDuration(connection.duration)}
                     </div>
-                    <div className="my-1 h-px w-full bg-border" />
+                    <div className="my-1 h-px w-full bg-gray-200" />
                     <div className="text-xs text-gray-400">
                       {connection.transfers === 0
                         ? 'Direct'

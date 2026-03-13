@@ -35,3 +35,16 @@ export function getDelayColorClass(delay: number | null): string {
 
   return 'text-green-600'; // Early
 }
+
+
+export function formatDuration(raw: string): string {
+  // API format: "0d00:36:00"
+  const match = raw.match(/\d+d(\d+):(\d+)/);
+  if (!match) return raw;
+
+  const hours = parseInt(match[1], 10);
+  const minutes = parseInt(match[2], 10);
+
+  if (hours === 0) return `${minutes} min`;
+  return `${hours}h ${minutes}min`;
+}
