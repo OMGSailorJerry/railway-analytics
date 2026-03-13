@@ -42,7 +42,7 @@ export function ConnectionPlanner() {
     <div className="flex h-full flex-col space-y-4 p-4">
       <div>
         <h2 className="text-2xl font-bold">Connection Planner</h2>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-gray-400">
           Find connections between stations
         </p>
       </div>
@@ -61,17 +61,17 @@ export function ConnectionPlanner() {
             }}
             onFocus={() => setShowFromDropdown(true)}
             placeholder="Departure station"
-            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            className="flex h-10 w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm ring-offset-background placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           />
           {showFromDropdown && fromQuery && (
-            <div className="absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-md border bg-popover p-1 shadow-md">
+            <div className="absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-md border bg-white p-1 shadow-md">
               {fromResults.isLoading && (
-                <div className="px-3 py-2 text-sm text-muted-foreground">
+                <div className="px-3 py-2 text-sm text-gray-400">
                   Loading...
                 </div>
               )}
               {fromResults.results.length === 0 && !fromResults.isLoading && (
-                <div className="px-3 py-2 text-sm text-muted-foreground">
+                <div className="px-3 py-2 text-sm text-gray-400">
                   No stations found
                 </div>
               )}
@@ -81,7 +81,7 @@ export function ConnectionPlanner() {
                   onClick={() => handleSelectFrom(station)}
                   className={cn(
                     'flex w-full cursor-pointer select-none items-center rounded-sm px-3 py-2 text-sm outline-none',
-                    'hover:bg-accent hover:text-accent-foreground'
+                    'hover:bg-gray-100 hover:text-accent-foreground'
                   )}
                 >
                   {station.name}
@@ -103,17 +103,17 @@ export function ConnectionPlanner() {
             }}
             onFocus={() => setShowToDropdown(true)}
             placeholder="Arrival station"
-            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            className="flex h-10 w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm ring-offset-background placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           />
           {showToDropdown && toQuery && (
-            <div className="absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-md border bg-popover p-1 shadow-md">
+            <div className="absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-md border bg-white p-1 shadow-md">
               {toResults.isLoading && (
-                <div className="px-3 py-2 text-sm text-muted-foreground">
+                <div className="px-3 py-2 text-sm text-gray-400">
                   Loading...
                 </div>
               )}
               {toResults.results.length === 0 && !toResults.isLoading && (
-                <div className="px-3 py-2 text-sm text-muted-foreground">
+                <div className="px-3 py-2 text-sm text-gray-400">
                   No stations found
                 </div>
               )}
@@ -123,7 +123,7 @@ export function ConnectionPlanner() {
                   onClick={() => handleSelectTo(station)}
                   className={cn(
                     'flex w-full cursor-pointer select-none items-center rounded-sm px-3 py-2 text-sm outline-none',
-                    'hover:bg-accent hover:text-accent-foreground'
+                    'hover:bg-gray-100 hover:text-accent-foreground'
                   )}
                 >
                   {station.name}
@@ -138,7 +138,7 @@ export function ConnectionPlanner() {
       <div className="flex-1 overflow-auto">
         {!fromStation || !toStation ? (
           <div className="flex h-full items-center justify-center">
-            <p className="text-muted-foreground">
+            <p className="text-gray-400">
               Select departure and arrival stations
             </p>
           </div>

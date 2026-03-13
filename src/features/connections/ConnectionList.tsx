@@ -13,7 +13,7 @@ export function ConnectionList({
   if (connections.length === 0) {
     return (
       <div className="flex h-full items-center justify-center">
-        <p className="text-muted-foreground">No connections available</p>
+        <p className="text-gray-400">No connections available</p>
       </div>
     );
   }
@@ -30,7 +30,7 @@ export function ConnectionList({
             onClick={() => onSelectConnection?.(connection)}
             className={cn(
               'rounded-lg border bg-card p-4 shadow-sm transition-colors',
-              onSelectConnection && 'cursor-pointer hover:bg-accent'
+              onSelectConnection && 'cursor-pointer hover:bg-gray-100'
             )}
           >
             <div className="flex items-start justify-between">
@@ -43,17 +43,17 @@ export function ConnectionList({
                         minute: '2-digit',
                       })}
                     </div>
-                    <div className="text-xs text-muted-foreground">
+                    <div className="text-xs text-gray-400">
                       {connection.from.name}
                     </div>
                   </div>
 
                   <div className="flex flex-1 flex-col items-center">
-                    <div className="text-sm font-medium text-muted-foreground">
+                    <div className="text-sm font-medium text-gray-400">
                       {connection.duration}
                     </div>
                     <div className="my-1 h-px w-full bg-border" />
-                    <div className="text-xs text-muted-foreground">
+                    <div className="text-xs text-gray-400">
                       {connection.transfers === 0
                         ? 'Direct'
                         : `${connection.transfers} transfer${connection.transfers > 1 ? 's' : ''}`}
@@ -67,7 +67,7 @@ export function ConnectionList({
                         minute: '2-digit',
                       })}
                     </div>
-                    <div className="text-xs text-muted-foreground">
+                    <div className="text-xs text-gray-400">
                       {connection.to.name}
                     </div>
                   </div>
@@ -75,7 +75,7 @@ export function ConnectionList({
 
                 {/* TODO: Expand to show legs */}
                 {connection.legs.length > 0 && (
-                  <div className="mt-3 text-xs text-muted-foreground">
+                  <div className="mt-3 text-xs text-gray-400">
                     {connection.legs.map((leg, legIndex) => (
                       <span key={legIndex}>
                         {leg.category} {leg.name}

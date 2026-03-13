@@ -81,7 +81,7 @@ export function StationSearch() {
               <span className="font-medium text-gray-800">{station.name}</span>
               {station.coordinates && (
                 <span className="text-xs text-gray-400">
-                  {station.coordinates.lat.toFixed(3)}, {station.coordinates.lng.toFixed(3)}
+                  {station.coordinates.lat?.toFixed(3)}, {station.coordinates.lng?.toFixed(3)}
                 </span>
               )}
             </button>

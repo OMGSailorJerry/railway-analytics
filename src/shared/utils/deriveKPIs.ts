@@ -72,6 +72,6 @@ export function deriveKPIs(departures: Departure[]): StationKPIs {
     onTimeRate: Math.round(onTimeRate),
     nextDepartureInMinutes,
     departuresNextHour,
-    averageDelayMinutes: Math.round(averageDelayMinutes * 10) / 10,
+    averageDelayMinutes: Math.round(averageDelayMinutes),
   };
 }

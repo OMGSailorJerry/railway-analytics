@@ -17,8 +17,8 @@ export function LoadingState({
       )}
     >
       <div className="flex flex-col items-center space-y-4">
-        <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
-        <p className="text-sm text-muted-foreground">{message}</p>
+        <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-transparent" />
+        <p className="text-sm text-gray-400">{message}</p>
       </div>
     </div>
   );
@@ -39,7 +39,7 @@ export function ErrorState({ message, retry, className }: ErrorStateProps) {
       )}
     >
       <div className="flex flex-col items-center space-y-4 text-center">
-        <div className="rounded-full bg-destructive/10 p-3">
+        <div className="rounded-full bg-red-50 p-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -50,7 +50,7 @@ export function ErrorState({ message, retry, className }: ErrorStateProps) {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="text-destructive"
+            className="text-red-500"
           >
             <circle cx="12" cy="12" r="10" />
             <line x1="12" y1="8" x2="12" y2="12" />
@@ -59,12 +59,12 @@ export function ErrorState({ message, retry, className }: ErrorStateProps) {
         </div>
         <div className="space-y-2">
           <h3 className="font-medium">Error</h3>
-          <p className="text-sm text-muted-foreground">{message}</p>
+          <p className="text-sm text-gray-400">{message}</p>
         </div>
         {retry && (
           <button
             onClick={retry}
-            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+            className="rounded-md bg-gray-800 px-4 py-2 text-sm font-medium text-white hover:bg-gray-700"
           >
             Try Again
           </button>

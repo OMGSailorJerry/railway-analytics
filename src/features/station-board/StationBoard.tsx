@@ -1,5 +1,4 @@
 import { useStationBoard } from './useStationBoard';
-import { StationKPIsDisplay } from './StationKPIs';
 import { DataTable } from '@/shared/components/DataTable';
 import { LoadingState, ErrorState } from '@/shared/components/LoadingState';
 import { formatDelay, getDelayColorClass } from '@/shared/utils/formatDelay';
@@ -11,13 +10,13 @@ interface StationBoardProps {
 }
 
 export function StationBoard({ stationId, stationName }: StationBoardProps) {
-  const { departures, kpis, isLoading, error, refetch } =
+  const { departures, isLoading, error, refetch } =
     useStationBoard(stationId);
 
   if (!stationId) {
     return (
       <div className="flex h-full items-center justify-center">
-        <p className="text-muted-foreground">
+        <p className="text-gray-400">
           Select a station to view departures
         </p>
       </div>
@@ -42,19 +41,17 @@ export function StationBoard({ stationId, stationName }: StationBoardProps) {
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-2xl font-bold">{stationName}</h2>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-gray-400">
             Live departures • Updated every minute
           </p>
         </div>
         <button
           onClick={() => refetch()}
-          className="rounded-md border px-4 py-2 text-sm font-medium hover:bg-accent"
+          className="rounded-md border px-4 py-2 text-sm font-medium hover:bg-gray-100"
         >
           Refresh
         </button>
       </div>
-
-      <StationKPIsDisplay kpis={kpis} />
 
       <div className="flex-1 overflow-auto rounded-md border">
         <DataTable<Departure>
@@ -82,7 +79,7 @@ export function StationBoard({ stationId, stationName }: StationBoardProps) {
               render: (departure) => (
                 <div>
                   <div className="font-medium">{departure.name}</div>
-                  <div className="text-xs text-muted-foreground">
+                  <div className="text-xs text-gray-400">
                     {departure.category}
                   </div>
                 </div>

@@ -1,3 +1,4 @@
+import React from 'react';
 import { cn } from '../utils/cn';
 
 interface Column<T> {
@@ -26,12 +27,12 @@ export function DataTable<T>({
     <div className={cn('relative w-full overflow-auto', className)}>
       <table className="w-full caption-bottom text-sm">
         <thead className="border-b">
-          <tr className="border-b transition-colors hover:bg-muted/50">
+          <tr className="border-b transition-colors hover:bg-gray-50">
             {columns.map((column) => (
               <th
                 key={column.key}
                 className={cn(
-                  'h-12 px-4 text-left align-middle font-medium text-muted-foreground',
+                  'h-12 px-4 text-left align-middle font-medium text-gray-400',
                   column.className
                 )}
               >
@@ -45,7 +46,7 @@ export function DataTable<T>({
             <tr>
               <td
                 colSpan={columns.length}
-                className="h-24 px-4 text-center text-muted-foreground"
+                className="h-24 px-4 text-center text-gray-400"
               >
                 No data available
               </td>
@@ -55,7 +56,7 @@ export function DataTable<T>({
               <tr
                 key={keyExtractor(item)}
                 className={cn(
-                  'border-b transition-colors hover:bg-muted/50',
+                  'border-b transition-colors hover:bg-gray-50',
                   onRowClick && 'cursor-pointer'
                 )}
                 onClick={() => onRowClick?.(item)}

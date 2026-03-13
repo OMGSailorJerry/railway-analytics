@@ -69,10 +69,12 @@ export function RailMap({ stations }: RailMapProps) {
               <Popup>
                 <div className="min-w-[200px]">
                   <h3 className="font-bold">{station.name}</h3>
-                  <p className="text-xs text-gray-500">
-                    {station.coordinates.lat.toFixed(4)},{' '}
-                    {station.coordinates.lng.toFixed(4)}
-                  </p>
+                    {station.coordinates && (
+                    <p className="text-xs text-gray-500">
+                        {station.coordinates.lat?.toFixed(4)},{' '}
+                        {station.coordinates.lng?.toFixed(4)}
+                    </p>
+                    )}
                 </div>
               </Popup>
             </Marker>
