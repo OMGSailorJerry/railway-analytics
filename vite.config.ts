@@ -10,4 +10,8 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  server: {
+    host: true, // listen on 0.0.0.0 so dev container port forwarding works
+    port: 5173,
+  },
 })

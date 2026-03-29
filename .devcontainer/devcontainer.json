@@ -1,0 +1,43 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+  "name": "Node.js & TypeScript",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+
+  "containerEnv": {
+    "IN_DEVCONTAINER": "true",
+    "IS_CONTAINER": "true"
+  },
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "appPort": ["5173:5173"],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "yarn install",
+
+  // Configure tool-specific properties.
+  // "customizations": {},
+  "customizations": {
+    "vscode": {
+      // Extensions are the plugins that you can install in VS Code.
+      // These add some great features to your development environment.
+      "extensions": [
+        "eamodio.gitlens",
+        "mutantdino.resourcemonitor",
+        "Angular.ng-template"
+      ]
+    }
+  },
+  // bash/zsh mounts
+  "mounts": [
+    // "source=${localEnv:HOME}/.zsh_history,target=/home/node/.zsh_history,type=bind",
+    "source=${localEnv:HOME}/.bash_history,target=/home/node/.bash_history,type=bind",
+    // "source=${localEnv:HOME}/.bash_aliases,target=/home/vscode/.bash_aliases,type=bind",
+    // "source=${localEnv:HOME}/.zsh_aliases,target=/home/vscode/.bash_aliases,type=bind"
+  ],
+  "postCreateCommand": "echo \"export PROMPT_COMMAND='history -a'\" >> ~/.bashrc"
+
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+}
